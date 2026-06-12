@@ -4,5 +4,6 @@
 header('Location: /WeatherIA/app/views/User/index.php');
 exit;
 
+
 ?>
 

@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="../../../clima/style.css">
+    <link rel="stylesheet" href="style.css">
     <style>
         body{display:flex;justify-content:center;align-items:center;height:100vh}
         .weather-card{max-width:420px;width:100%;padding:20px}

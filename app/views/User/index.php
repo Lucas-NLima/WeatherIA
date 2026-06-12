@@ -11,19 +11,23 @@ if (!isset($_SESSION['user_id'])) {
 
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Previsão do Tempo Completa</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
+
 <body>
 
-    <div style="position:fixed;top:12px;right:12px;z-index:9999"> 
-        <a href="Logout.php" style="display:inline-block;padding:8px 12px;background:rgba(0,0,0,0.12);color:#fff;border-radius:6px;text-decoration:none;font-weight:600">Sair</a>
+    <div style="position:fixed;top:12px;right:12px;z-index:9999">
+        <a href="Logout.php"
+            style="display:inline-block;padding:8px 12px;background:rgba(0,0,0,0.12);color:#fff;border-radius:6px;text-decoration:none;font-weight:600">Sair</a>
     </div>
 
-<h1 id="title">Olá, <?= htmlspecialchars($_SESSION['user_name'] ?? 'Usuário') ?>! Bem-vindo à previsão do tempo completa.</h1>
+    <h1 id="title">Olá, <?= htmlspecialchars($_SESSION['user_name'] ?? 'Usuário') ?>! Bem-vindo à previsão do tempo
+        completa.</h1>
     <div class="filter-backdrop" id="filter-backdrop"></div>
 
     <div class="app-shell">
@@ -66,7 +70,8 @@ if (!isset($_SESSION['user_id'])) {
                         <strong id="country-count">0</strong>
                     </summary>
                     <div class="picker-content">
-                        <input type="search" class="list-search" id="country-list-search" placeholder="Filtrar países" autocomplete="off">
+                        <input type="search" class="list-search" id="country-list-search" placeholder="Filtrar países"
+                            autocomplete="off">
                         <div class="option-list" id="country-list"></div>
                     </div>
                 </details>
@@ -80,7 +85,8 @@ if (!isset($_SESSION['user_id'])) {
                         <strong id="state-count">0</strong>
                     </summary>
                     <div class="picker-content">
-                        <input type="search" class="list-search" id="state-list-search" placeholder="Filtrar estados" autocomplete="off">
+                        <input type="search" class="list-search" id="state-list-search" placeholder="Filtrar estados"
+                            autocomplete="off">
                         <div class="option-list" id="state-list"></div>
                     </div>
                 </details>
@@ -94,18 +100,20 @@ if (!isset($_SESSION['user_id'])) {
                         <strong id="city-count">0</strong>
                     </summary>
                     <div class="picker-content">
-                        <input type="search" class="list-search" id="city-list-search" placeholder="Filtrar cidades" autocomplete="off">
+                        <input type="search" class="list-search" id="city-list-search" placeholder="Filtrar cidades"
+                            autocomplete="off">
                         <div class="option-list" id="city-list"></div>
                     </div>
                 </details>
             </div>
 
-            <button type="button" class="panel-search-btn" id="panel-search-btn" disabled>Buscar local selecionado</button>
+            <button type="button" class="panel-search-btn" id="panel-search-btn" disabled>Buscar local
+                selecionado</button>
         </aside>
 
         <div class="weather-card">
             <h1>Previsão do Tempo</h1>
-            
+
             <div class="search-tools">
                 <div class="search-box">
                     <input type="text" id="city-input" placeholder="Cidade ou município..." autocomplete="off">
@@ -116,7 +124,8 @@ if (!isset($_SESSION['user_id'])) {
                         </svg>
                     </button>
                 </div>
-                <button type="button" class="advanced-filter-btn" id="open-filters-btn" aria-controls="location-panel" aria-expanded="false" aria-label="Filtros avançados">
+                <button type="button" class="advanced-filter-btn" id="open-filters-btn" aria-controls="location-panel"
+                    aria-expanded="false" aria-label="Filtros avançados">
                     <svg viewBox="0 0 24 24" aria-hidden="true">
                         <path d="M4 7h10M18 7h2M4 17h2M10 17h10"></path>
                         <circle cx="16" cy="7" r="2"></circle>
@@ -132,20 +141,28 @@ if (!isset($_SESSION['user_id'])) {
                 <div class="weather-main">
                     <h2 id="city-name">--</h2>
                     <div class="coord-text" id="coordinates">Lat: -- | Lon: --</div>
-                    
+
                     <div class="temp">
-                        <div class="weather-visual" id="weather-visual" role="img" aria-label="Ilustração do clima atual"></div>
+                        <div class="weather-visual" id="weather-visual" role="img"
+                            aria-label="Ilustração do clima atual"></div>
                         <span id="temperature">--°C</span>
                     </div>
-                    
+
                     <div class="desc" id="description">--</div>
                     <div class="feels-like">Sensação térmica de <strong id="feels-like">--°C</strong></div>
                 </div>
-                
+
                 <div class="weather-grid">
                     <div class="grid-item">
                         <span id="temp-range-label">Min / Máx</span>
                         <strong id="temp-range">--°C</strong>
+                    </div>
+                    <div class="suggestions-box" id="suggestions-box" style="display:none;">
+                        <h3>👕 Sugestão de Roupa</h3>
+                        <p id="clothing-suggestion"></p>
+
+                        <h3>🎯 Atividades Recomendadas</h3>
+                        <p id="activity-suggestion"></p>
                     </div>
                     <div class="grid-item">
                         <span>Umidade</span>
@@ -257,7 +274,11 @@ if (!isset($_SESSION['user_id'])) {
                 pressure: document.getElementById('pressure'),
                 visibility: document.getElementById('visibility'),
                 sunrise: document.getElementById('sunrise'),
-                sunset: document.getElementById('sunset')
+                sunset: document.getElementById('sunset'),
+
+                clothingSuggestion: document.getElementById('clothing-suggestion'),
+                activitySuggestion: document.getElementById('activity-suggestion'),
+                suggestionsBox: document.getElementById('suggestions-box')
             };
 
             openFiltersBtn.addEventListener('click', openFilters);
@@ -764,6 +785,52 @@ if (!isset($_SESSION['user_id'])) {
 
                 return params;
             }
+            function generateSuggestions(data) {
+
+                const temp = data.main.temp;
+                const weather = data.weather[0].main.toLowerCase();
+
+                let roupa = "";
+                let atividade = "";
+
+                // Sugestão de roupa
+                if (temp >= 35) {
+                    roupa = "🩳 Roupas muito leves, camiseta, shorts, boné e protetor solar.";
+                }
+                else if (temp >= 25) {
+                    roupa = "👕 Camiseta, bermuda ou roupas leves.";
+                }
+                else if (temp >= 18) {
+                    roupa = "👔 Roupa confortável, calça leve e camiseta.";
+                }
+                else if (temp >= 10) {
+                    roupa = "🧥 Casaco leve ou moletom.";
+                }
+                else {
+                    roupa = "🥶 Casaco pesado, blusa de frio e roupas quentes.";
+                }
+
+                // Sugestão de atividades
+                if (weather.includes('rain') || weather.includes('drizzle')) {
+                    atividade = "📚 Ler um livro, assistir filmes, estudar ou jogar videogame.";
+                }
+                else if (weather.includes('thunderstorm')) {
+                    atividade = "🏠 Permanecer em local seguro, assistir séries ou estudar.";
+                }
+                else if (temp >= 30) {
+                    atividade = "🏊 Ir à piscina, tomar sorvete, caminhar em locais com sombra.";
+                }
+                else if (temp >= 20) {
+                    atividade = "🚴 Caminhada, corrida, passeio ao ar livre ou esportes.";
+                }
+                else {
+                    atividade = "☕ Tomar algo quente, visitar cafés ou assistir filmes.";
+                }
+
+                els.clothingSuggestion.textContent = roupa;
+                els.activitySuggestion.textContent = atividade;
+                els.suggestionsBox.style.display = "block";
+            }
 
             async function fetchWeather() {
                 const params = buildWeatherParams();
@@ -804,6 +871,8 @@ if (!isset($_SESSION['user_id'])) {
 
                     applyWeatherTheme(data);
 
+                    generateSuggestions(data);
+
                     loadingDiv.style.display = 'none';
                     resultDiv.style.display = 'block';
 
@@ -830,4 +899,5 @@ if (!isset($_SESSION['user_id'])) {
         });
     </script>
 </body>
+
 </html>
