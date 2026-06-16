@@ -1,11 +1,10 @@
 <?php
+session_start();
 require_once __DIR__ . '/../../config/Database2.php';
 
-session_start();
-
-// If already logged in, go to dashboard
+// If already logged in, go to dashboard (index)
 if (isset($_SESSION['user_id'])) {
-    header('Location: Dashboard.php');
+    header('Location: Register.php');
     exit;
 }
 
