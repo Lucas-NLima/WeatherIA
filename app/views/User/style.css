@@ -59,9 +59,8 @@ body::before {
    ========================================================================== */
 body.bg-clear {
     background-color: #9cd1ff;
-        background-image: url("Gemini_Generated_Image_qvubyaqvubyaqvub.png");
-
-    background-image: url("https://images.unsplsh.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=1800&q=80");
+    /* Use the single project background image */
+    background-image: url("Gemini_Generated_Image_qvubyaqvubyaqvub.png");
     /* Amarelo/Laranja Queimado (Sol) */
     --accent-primary: #d97706; 
     --accent-primary-rgb: 217, 119, 6;
@@ -73,7 +72,7 @@ body.bg-clear {
 
 body.bg-clouds {
     background-color: #cddbe8;
-    background-image: url("https://images.unsplash.com/photo-1534088568595-a066f410bcda?auto=format&fit=crop&w=1800&q=80");
+    /* background-image removed to keep single Gemini image */
     /* Cinza Azulado Escuro */
     --accent-primary: #475569; 
     --accent-primary-rgb: 71, 85, 105;
@@ -86,7 +85,7 @@ body.bg-clouds {
 body.bg-rain,
 body.bg-drizzle {
     background-color: #a7c3df;
-    background-image: url("https://images.unsplash.com/photo-1519692933481-e162a57d6721?auto=format&fit=crop&w=1800&q=80");
+    /* background-image removed to keep single Gemini image */
     /* Azul de Chuva */
     --accent-primary: #2563eb; 
     --accent-primary-rgb: 37, 99, 235;
@@ -98,7 +97,7 @@ body.bg-drizzle {
 
 body.bg-thunderstorm {
     background-color: #929db3;
-    background-image: url("https://images.unsplash.com/photo-1500674425229-f692875b0ab7?auto=format&fit=crop&w=1800&q=80");
+    /* background-image removed to keep single Gemini image */
     /* Anil/Roxo Escuro */
     --accent-primary: #4f46e5; 
     --accent-primary-rgb: 79, 70, 229;
@@ -110,7 +109,7 @@ body.bg-thunderstorm {
 
 body.bg-snow {
     background-color: #ffffff;
-    background-image: url("https://images.unsplash.com/photo-1483664852095-d6cc6870702d?auto=format&fit=crop&w=1800&q=80");
+    /* background-image removed to keep single Gemini image */
     /* Azul Gelo */
     --accent-primary: #0284c7; 
     --accent-primary-rgb: 2, 132, 199;
@@ -122,7 +121,7 @@ body.bg-snow {
 
 body.bg-mist {
     background-color: #e2e8f0;
-    background-image: url("https://images.unsplash.com/photo-1485236715568-ddc5ee6ca227?auto=format&fit=crop&w=1800&q=80");
+    /* background-image removed to keep single Gemini image */
     /* Cinza Claro */
     --accent-primary: #64748b; 
     --accent-primary-rgb: 100, 116, 139;
@@ -134,7 +133,7 @@ body.bg-mist {
 
 body.bg-hot {
     background-color: #ffdab3;
-    background-image: url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1800&q=80");
+    /* background-image removed to keep single Gemini image */
     /* Vermelho Vivo */
     --accent-primary: #dc2626; 
     --accent-primary-rgb: 220, 38, 38;
@@ -146,7 +145,7 @@ body.bg-hot {
 
 body.bg-cold {
     background-color: #cbeafe;
-    background-image: url("https://images.unsplash.com/photo-1517299321609-52687d1bc55a?auto=format&fit=crop&w=1800&q=80");
+    /* background-image removed to keep single Gemini image */
     /* Azul Frio */
     --accent-primary: #0369a1; 
     --accent-primary-rgb: 3, 105, 161;
@@ -158,7 +157,7 @@ body.bg-cold {
 
 body.bg-spring {
     background-color: #d1f5de;
-    background-image: url("https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=1800&q=80");
+    /* background-image removed to keep single Gemini image */
     /* Verde Natureza */
     --accent-primary: #16a34a; 
     --accent-primary-rgb: 22, 163, 74;
@@ -170,7 +169,7 @@ body.bg-spring {
 
 body.bg-autumn {
     background-color: #ffcdb3;
-    background-image: url("https://images.unsplash.com/photo-1508264165352-258db2ebd59b?auto=format&fit=crop&w=1800&q=80");
+    /* background-image removed to keep single Gemini image */
     /* Laranja Outono */
     --accent-primary: #ea580c; 
     --accent-primary-rgb: 234, 88, 12;
@@ -182,7 +181,7 @@ body.bg-autumn {
 
 body.bg-night {
     background-color: #4a5a73;
-    background-image: url("https://images.unsplash.com/photo-1475274047050-1d0c0975c63e?auto=format&fit=crop&w=1800&q=80");
+    /* background-image removed to keep single Gemini image */
     color: #ffffff;
     /* Roxo Noturno */
     --accent-primary: #7c3aed; 
@@ -1222,4 +1221,116 @@ body.bg-night .grid-item strong {
     .grid-item {
         width: 50%;
     }
+}
+
+/* --------------------------------------------------------------------------
+   Login form styles (used by Login.php)
+   -------------------------------------------------------------------------- */
+.login-form {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.login-form input[type="email"],
+.login-form input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(13, 43, 69, 0.12);
+    margin: 6px 0;
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.92);
+    font-weight: 700;
+}
+
+.login-form button {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    background: linear-gradient(135deg, var(--accent-hover), var(--accent-dark));
+    color: #ffffff;
+    font-weight: 900;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(var(--accent-primary-rgb), 0.18);
+    text-transform: uppercase;
+}
+
+.login-form button:hover {
+    transform: translateY(-2px);
+}
+
+/* --------------------------------------------------------------------------
+   Register form shares same base styles
+   -------------------------------------------------------------------------- */
+.register-form {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.register-form input[type="text"],
+.register-form input[type="email"],
+.register-form input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(13, 43, 69, 0.12);
+    margin: 6px 0;
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.92);
+    font-weight: 700;
+}
+
+.register-form button {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    background: linear-gradient(135deg, var(--accent-hover), var(--accent-dark));
+    color: #ffffff;
+    font-weight: 900;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(var(--accent-primary-rgb), 0.18);
+    text-transform: uppercase;
+}
+
+.register-form button:hover {
+    transform: translateY(-2px);
+}
+
+/* --------------------------------------------------------------------------
+   Bluish form variant used by login/register
+   -------------------------------------------------------------------------- */
+.form-blue {
+    --accent-primary: #3b82f6;
+    --accent-primary-rgb: 59, 130, 246;
+    --accent-hover: #60a5fa;
+    --accent-dark: #1e40af;
+    --accent-light: #bfdbfe;
+    --accent-bg: #eff6ff;
+    background: linear-gradient(180deg, rgba(59,130,246,0.06), rgba(255,255,255,0.6));
+    border: 2px solid rgba(59,130,246,0.12);
+    box-shadow: 0 10px 30px rgba(14, 45, 85, 0.06);
+    color: #083058;
+}
+
+.form-blue h1 {
+    background: linear-gradient(90deg, #2563eb, #3b82f6);
+    color: #ffffff;
+    border-bottom-color: rgba(30,64,175,0.6);
+}
+
+.form-blue .login-form input,
+.form-blue .register-form input {
+    background: rgba(255,255,255,0.96);
+    border: 1px solid rgba(14,45,85,0.06);
+}
+
+.form-blue .login-form button,
+.form-blue .register-form button {
+    background: linear-gradient(135deg, var(--accent-hover), var(--accent-dark));
 }

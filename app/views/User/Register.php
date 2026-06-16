@@ -30,25 +30,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Registrar</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        body{display:flex;justify-content:center;align-items:center;height:100vh}
-        .weather-card{max-width:420px;width:100%;padding:20px}
-        .weather-card form input[type="text"],
-        .weather-card form input[type="email"],
-        .weather-card form input[type="password"]{
-            width:100%;padding:10px;border-radius:6px;border:1px solid #ddd;margin:8px 0;box-sizing:border-box
-        }
-        .weather-card form button{width:100%;padding:10px;border-radius:6px;border:none;background:var(--accent-dark,#2b6cb0);color:#fff;font-weight:600;cursor:pointer}
-    </style>
 </head>
 <body class="bg-clear">
-    <div class="weather-card">
-    <form method="POST">
-        <input type="text" name="nome" placeholder="Nome" required>
-        <input type="email" name="email" placeholder="Email" required>
-        <input type="password" name="senha" placeholder="Senha" required>
-        <button type="submit">Registrar</button>
-    </form>
+    <div style="position:fixed;top:12px;right:12px;z-index:9999">
+        <a href="index.php" style="display:inline-block;padding:8px 12px;background:rgba(0,0,0,0.12);color:#fff;border-radius:6px;text-decoration:none;font-weight:600">Voltar</a>
+    </div>
+    <div class="app-shell">
+        <div class="weather-card form-blue">
+            <h1>Registrar</h1>
+            <form method="POST" class="register-form">
+                <input type="text" name="nome" placeholder="Nome" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="password" name="senha" placeholder="Senha" required>
+                <button type="submit">Registrar</button>
+            </form>
+        </div>
     </div>
 </body>
 </html>

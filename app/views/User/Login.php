@@ -44,27 +44,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        body{display:flex;justify-content:center;align-items:center;height:100vh}
-        .weather-card{max-width:420px;width:100%;padding:20px}
-        .weather-card form input[type="email"],
-        .weather-card form input[type="password"]{
-            width:100%;padding:10px;border-radius:6px;border:1px solid #ddd;margin:8px 0;box-sizing:border-box
-        }
-        .weather-card form button{width:100%;padding:10px;border-radius:6px;border:none;background:var(--accent-dark,#2b6cb0);color:#fff;font-weight:600;cursor:pointer}
-    </style>
 </head>
 <body class="bg-clear">
-    <div class="weather-card">
-    <?php if (!empty($error)): ?>
-        <p style="color:red;padding:12px"><?= htmlspecialchars($error) ?></p>
-    <?php endif; ?>
-    <form method="POST">
-        <input type="email" name="email" placeholder="Email" required>
-        <input type="password" name="senha" placeholder="Senha" required>
-        <button type="submit">Login</button>
-    </form>
-    <p style="padding-bottom:12px"><a href="Register.php">Não tem uma conta? Cadastre-se</a></p>
+    <div style="position:fixed;top:12px;right:12px;z-index:9999">
+    </div>
+    <div class="app-shell">
+        <div class="weather-card form-blue">
+            <h1>Entrar</h1>
+            <?php if (!empty($error)): ?>
+                <p style="color:red;padding:12px"><?= htmlspecialchars($error) ?></p>
+            <?php endif; ?>
+            <form method="POST" class="login-form">
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="password" name="senha" placeholder="Senha" required>
+                <button type="submit">Entrar</button>
+            </form>
+            <p style="padding-bottom:12px"><a href="Register.php">Não tem uma conta? Cadastre-se</a></p>
+        </div>
     </div>
 </body>
 </html>
